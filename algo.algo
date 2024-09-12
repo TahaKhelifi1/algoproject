@@ -1,0 +1,56 @@
+algorrithme charactere 
+function length(var ch: string): integer 
+var
+    i: integer;
+    nbr: integer;
+    n: integer;
+begin
+    nbr := 0;
+    n := length(ch);
+    for i := 0 to n - 1 do
+        if ch[i] <> '' then
+            nbr := nbr + 1;
+        end if;
+    end for;
+    return nbr;
+end;
+
+function nbrword(var ch: string): integer 
+var 
+    i, nbrw: integer;
+    spc: char;
+begin 
+    spc := ' ';
+    nbrw := 0;
+    if ch <> '' then
+        nbrw := 1; // Start with 1 to count the first word
+        for i := 0 to length(ch) - 1 do
+            if ch[i] = spc then
+                nbrw := nbrw + 1;
+            end if;
+        end for;
+    end if;
+    return nbrw;
+end;
+
+function voyelle(var tab: array of string): integer 
+var 
+    j, i, cpt: integer;
+    ch: string;
+    vowels: string;
+begin 
+    vowels := 'aeiouAEIOU'; // Define vowels
+    cpt := 0;
+    for i := 0 to length(tab) - 1 do
+        ch := tab[i];
+        for j := 0 to length(ch) - 1 do
+            if ch[j] in vowels then 
+                cpt := cpt + 1;
+            end if;
+        end for;
+    end for;
+    print("The number of vowels is " + cpt);
+    return cpt;
+end;
+
+
